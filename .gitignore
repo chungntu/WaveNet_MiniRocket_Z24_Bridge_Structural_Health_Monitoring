@@ -2,3 +2,4 @@ __pycache__/
 # Bỏ qua dataset và lịch sử chạy
 DatasetPDT/
 History/
+*.h5
