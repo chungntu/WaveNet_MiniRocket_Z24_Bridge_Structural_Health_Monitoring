@@ -11,15 +11,8 @@ classes = ['01','03','04','05','06']
 
 X_train, X_val, X_test, y_train, y_val, y_test, width = datasetManagement(classes, 65536)
 
-models_dir = Path(r"C:\Users\Dell Precision 7810\Documents\GitHub\WaveNet_MiniRocket_Z24_Bridge_Structural_Health_Monitoring\models")
-model_path = models_dir / "Wavenet8_1_9_65536_2.h5"
-
-if not model_path.exists():
-    candidates = list(models_dir.glob("*.h5"))
-    raise FileNotFoundError(
-        f"Không tìm thấy: {model_path}\n" + "\n".join(f"- {p.name}" for p in candidates)
-        if candidates else "Thư mục không có file .h5 nào."
-    )
+models_dir = Path(r"C:\Users\Dell Precision 7810\Documents\GitHub\WaveNet_MiniRocket_Z24_Bridge_Structural_Health_Monitoring")
+model_path = models_dir / "Wavenet8_1_9_65536_4.h5"
 
 # load không compile, rồi compile lại theo kiểu nhãn
 model = tf.keras.models.load_model(str(model_path), compile=False)
