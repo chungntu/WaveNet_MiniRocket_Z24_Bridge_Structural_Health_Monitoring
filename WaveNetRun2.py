@@ -25,7 +25,7 @@ X_train, X_val, X_test, y_train, y_val, y_test, width= datasetManagement(classes
 
 #to load a model:
 models_dir = Path(r"C:\Users\Dell Precision 7810\Documents\GitHub\WaveNet_MiniRocket_Z24_Bridge_Structural_Health_Monitoring")
-model_path = models_dir / "Wavenet8_1_9_65536_3.h5"   # <-- ĐIỂM MẤU CHỐT
+model_path = models_dir / "Wavenet8_1_9_65536_6.h5"   # <-- ĐIỂM MẤU CHỐT
 # Nếu model có custom layers/loss, có thể cần truyền custom_objects
 # ví dụ: custom_objects={'WaveNetBlock': WaveNetBlock, ...}
 # Bắt đầu với compile=False cho an toàn, rồi compile lại trong WavenetRun
