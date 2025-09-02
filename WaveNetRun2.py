@@ -21,7 +21,7 @@ else:
 classes = ['01', '03', '04', '05', '06']
 
 X_train, X_val, X_test, y_train, y_val, y_test, width= datasetManagement(classes,65536)
-model = None
+# model = None
 
 #to load a model:
 models_dir = Path(r"C:\Users\Dell Precision 7810\Documents\GitHub\WaveNet_MiniRocket_Z24_Bridge_Structural_Health_Monitoring")
