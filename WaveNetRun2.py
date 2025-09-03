@@ -35,7 +35,7 @@ model = None
 learning_rate=0.0001
 filter=8
 batchsize=2
-epochs=50
+epochs=20
 numberOfResidualsPerBlock=9 #2^(0), 2^(1),...,2^(N-1) 
 numberOfBlocks=1 #E.g. equal to 2 : 2^0,..2^9,2^0,..2^9
 
