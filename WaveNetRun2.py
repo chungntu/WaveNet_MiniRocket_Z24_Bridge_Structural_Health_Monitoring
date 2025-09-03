@@ -21,22 +21,20 @@ else:
 classes = ['01', '03', '04', '05', '06']
 
 X_train, X_val, X_test, y_train, y_val, y_test, width= datasetManagement(classes,65536)
-# model = None
+model = None
 
 #to load a model:
-models_dir = Path(r"C:\Users\Dell Precision 7810\Documents\GitHub\WaveNet_MiniRocket_Z24_Bridge_Structural_Health_Monitoring")
-model_path = models_dir / "Wavenet8_1_9_65536_6.h5"   # <-- ĐIỂM MẤU CHỐT
+# models_dir = Path(r"C:\Users\Dell Precision 7810\Documents\GitHub\WaveNet_MiniRocket_Z24_Bridge_Structural_Health_Monitoring")
+# model_path = models_dir / "Wavenet8_1_9_65536_6.h5"   # <-- ĐIỂM MẤU CHỐT
 # Nếu model có custom layers/loss, có thể cần truyền custom_objects
 # ví dụ: custom_objects={'WaveNetBlock': WaveNetBlock, ...}
 # Bắt đầu với compile=False cho an toàn, rồi compile lại trong WavenetRun
-model = tf.keras.models.load_model(str(model_path), compile=False)
-print(f"Loaded model from: {model_path}")
+# model = tf.keras.models.load_model(str(model_path), compile=False)
+# print(f"Loaded model from: {model_path}")
 
 learning_rate=0.0001
 filter=8
 batchsize=2
-# epochs=2000
-
 epochs=50
 numberOfResidualsPerBlock=9 #2^(0), 2^(1),...,2^(N-1) 
 numberOfBlocks=1 #E.g. equal to 2 : 2^0,..2^9,2^0,..2^9
