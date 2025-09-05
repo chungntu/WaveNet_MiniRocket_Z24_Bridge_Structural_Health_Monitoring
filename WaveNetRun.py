@@ -28,10 +28,10 @@ else:
 #   - Dải lớp hợp lệ: '01' đến '17' (tùy bộ dữ liệu)
 # --------------------------------------------
 # 17 lớp
-# classes = ['01', '03', '04', '05', '06','07','09','10','11','12','13','14','15','16','17']
+classes = ['01', '03', '04', '05', '06','07','09','10','11','12','13','14','15','16','17']
 
-# Dùng 5 lớp để huấn luyện thử
-classes = ['01', '03', '04', '05', '06']
+# Dùng 5 lớp để huấn luyện
+# classes = ['01', '03', '04', '05', '06']
 
 # --------------------------------------------
 # Chuẩn bị dữ liệu
@@ -62,7 +62,7 @@ model = None
 learning_rate = 0.0001           # Tốc độ học
 filter = 8                       # Số filters (kênh) cho các Conv1D trong WaveNet
 batchsize = 32                   # Kích thước batch (điều chỉnh theo VRAM)
-epochs = 20                      # Số epoch huấn luyện
+epochs = 2                      # Số epoch huấn luyện
 numberOfResidualsPerBlock = 9    # Số residual dilation trong 1 block: 2^0, 2^1, ..., 2^(N-1)
 numberOfBlocks = 1               # Số block lặp lại (ví dụ =2: lặp lại chuỗi 2^0..2^9 hai lần)
 
