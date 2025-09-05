@@ -41,3 +41,46 @@ def evaluate_NN_models(model_list,X_test,y_test):
     confusion_matrix_value=confusion_matrix(y_test_classes, y_pred_value)
     confusion_matrix_list.append(confusion_matrix_value)
   return [accuracy ,precision, recall ,f1_score],confusion_matrix_list,y_pred
+
+
+
+# ==========================
+# Utils: đọc History và vẽ biểu đồ
+# ==========================
+def find_latest_history_file(history_dir="./History"):
+    import os, glob
+    files = glob.glob(os.path.join(history_dir, "*.txt"))
+    if not files:
+        print(f"[WARN] Không tìm thấy file history trong: {history_dir}")
+        return None
+    files.sort(key=os.path.getmtime, reverse=True)
+    return files[0]
+
+def load_history_dict(history_file):
+    import ast
+    with open(history_file, "r", encoding="utf-8") as f:
+        text = f.read().strip()
+    # File được lưu bằng str(dict) -> parse bằng ast.literal_eval
+    hist = ast.literal_eval(text)
+    if not isinstance(hist, dict):
+        raise ValueError("Nội dung history không phải dict.")
+    return hist
+
+
+# import matplotlib.pyplot as plt
+
+def plot_accuracy_from_history(history_dict, save_path=None, show_val=True):
+    acc = history_dict.get("accuracy", [])
+    val_acc = history_dict.get("val_accuracy", [])
+
+    plt.figure()
+    plt.plot(acc, label="Train Accuracy")
+    if show_val and val_acc:
+        plt.plot(val_acc, label="Validation Accuracy")
+    plt.xlabel("Epoch")
+    plt.ylabel("Accuracy")
+    plt.title("Accuracy vs Epochs")
+    plt.legend()
+    if save_path:
+        plt.savefig(save_path)
+    plt.show()
